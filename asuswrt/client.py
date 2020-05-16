@@ -121,6 +121,8 @@ class AsusWRT:
 
         clients = response.get('get_clientlist', {})
         clients.pop('maclist', None)
+        clients.pop('ClientAPILevel', None)      # support  asus ac86u fireware version 3.0.0.4.384.81858
+
         clients = list(map(Client, list(clients.values())))
 
         update_interface('2g', '2GHz')
